@@ -1,0 +1,24 @@
+# Use to fetch the  records using query
+type Query {
+    authors: [Author]
+    authorById(id: ID!): Author
+}
+# use for modification add and delete records
+type  Mutation{
+    addBook(book: BookInput): Book
+}
+input BookInput{
+    title: String
+    publisher: String
+    authorId: ID!
+}
+type Author{
+    id: ID!
+    name: String!
+    bookList:[Book]
+}
+type Book{
+    id: ID!
+    title: String!
+    publisher: String
+}
